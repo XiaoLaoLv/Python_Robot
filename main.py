@@ -1,5 +1,13 @@
-# from src import Bottom5Stock
+import pandas as pd
+import json
+
+from src import Bottom5Stock
+from common import ExcelHandler
+
 
 if __name__ == '__main__':
-    # stock_list = Bottom5Stock.filter_st_stock()
-    print('stock_list')
+    # stock_list = Bottom5Stock.pick_Bottom5Stock()
+    # print(stock_list)
+    Bottom5Stock.current_price()
+
+

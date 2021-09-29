@@ -1,3 +1,6 @@
+"""
+    从雪球爬取实时数据并进行数据整理
+"""
 import json
 import requests
 import pandas as pd
@@ -42,7 +45,7 @@ def save_data2excel():
 
     stock_list = stock_list.set_index('symbol', drop=True)
     stock_list.to_excel(config.filePath)
-    print(stock_list)
+    # print(stock_list)
 
 
 def filter_st_stock():
@@ -80,17 +83,17 @@ def filter_limitup_limitdown_stock(stock_list):
     return stock_list
 
 
-def pick_Bottom5Stock():
-    """
-        选择市值最小的5个股票
-    :return:
-    """
-    save_data2excel()
-    code_list = filter_st_stock()
-    stock_list = read_datafromexcel()
-    code_list = [stock for stock in code_list if stock in stock_list.index]
-    stock_list = stock_list.loc[code_list]
-    stock_list = filter_limitup_limitdown_stock(stock_list)
-    stock_list = stock_list.sort_values(by='float_market_capital', axis=0, ascending=True)
-    print(stock_list[['current', 'float_market_capital']].head(5))
+# def pick_Bottom5Stock():
+#     """
+#         选择市值最小的5个股票
+#     :return:
+#     """
+#     save_data2excel()
+#     code_list = filter_st_stock()
+#     stock_list = read_datafromexcel()
+#     code_list = [stock for stock in code_list if stock in stock_list.index]
+#     stock_list = stock_list.loc[code_list]
+#     stock_list = filter_limitup_limitdown_stock(stock_list)
+#     stock_list = stock_list.sort_values(by='float_market_capital', axis=0, ascending=True)
+#     print(stock_list[['current', 'float_market_capital']].head(5))
 
