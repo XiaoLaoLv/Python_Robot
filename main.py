@@ -8,6 +8,7 @@ from common import ExcelHandler
 if __name__ == '__main__':
     # stock_list = Bottom5Stock.pick_Bottom5Stock()
     # print(stock_list)
-    Bottom5Stock.current_price()
+    account_stock = Bottom5Stock.current_price()
+    print(account_stock)
 
 

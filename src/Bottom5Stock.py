@@ -31,7 +31,7 @@ def current_price():
     获取当前持有五只股票的最新价格
     """
     # 获取实时数据并保存到文件中
-    # save_data2excel()
+    save_data2excel()
     # 从文件中读取刚才爬取的数据
     stock_list = read_datafromexcel()
     # 从文件中读取持股信息
@@ -40,8 +40,7 @@ def current_price():
     # print(stock_list.loc[account_stock.index])
     # print(stock_list.loc[account_stock.index]['current'])
     account_stock['current'] = stock_list.loc[account_stock.index]['current']
-    print(account_stock)
-
+    return account_stock
 
 
 def read_account():
